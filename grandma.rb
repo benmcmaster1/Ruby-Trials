@@ -1,14 +1,4 @@
-# the user type in something
-# whatever he typed in, go to to a method
-
-# that method checks if what the user said is in normal case or uppercase
-# it then passes what he said and whether it was uppercase or not, to another method which gives a random response, based on
-# which case it was in
-
 def start
-	# puts "\nSay something to Grandma: "
-	
-
 	while true 
 		puts "\nSay something to Grandma: "
 		print "> "
@@ -20,22 +10,30 @@ def start
 			grandma_heard
 		elsif response.downcase
 			grandma_unheard
-			
 		end
-
 	end
 end
 
 def byeEnding
 	byecount = 1
 	puts "WHAT? DID YOU SAY BYE?"
-	print "> "
-	bye = $stdin.gets.chomp
+	answer = $stdin.gets.chomp
 
-	while byecount < 3
-		byecount += 1
-		puts "OH ARE YOU LEAVING NOW, SON?"
+	if answer == "BYE"
+		puts "OH, ARE YOU LEAVING?"
+	elsif !answer == "BYE" 
+		start
 	end
+
+	answer = $stdin.gets.chomp
+
+	if answer == "BYE"
+		puts "OK SONNY, SEE YOU NEXT TIME - GIVE ME A KISSSS"
+		exit(1)
+	elsif !answer == "BYE"
+		start
+	end
+
 end
 
 def grandma_heard
@@ -76,12 +74,7 @@ def grandma_unheard
 		puts "TALK UP WOULD YOU?"
 	elsif random2 == 5
 		puts "I CAN'T HEAR YOU, SPEAK UP SON!"			
+	end
 end
-end
-
 
 start
-
-
-
-
